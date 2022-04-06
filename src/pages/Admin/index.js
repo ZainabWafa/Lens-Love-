@@ -138,14 +138,14 @@ const Admin = props => {
               handleChange={e => setProductPrice(e.target.value)}
             />
 
-             {/* <FormInput
+             <FormInput
               label="Stock"
               type="number"
               min="0.00"
               max="10000.00"
               value={productStock}
               handleChange={e => setProductStock(e.target.value)}
-            /> */}
+            />
 
             <CKEditor
               onChange={evt => setProductDesc(evt.editor.getData())}
