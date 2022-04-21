@@ -120,8 +120,8 @@ const Admin = props => {
             />
 
             <FormInput
-              label="Main image URL"
-              type="url"
+              label="Main image "
+              type="file"
               // type="file" accept="image/*" 
               // enctype='multipart/'
               value={productThumbnail}
@@ -196,9 +196,9 @@ const Admin = props => {
                           <td>
                             Price:{productPrice}
                           </td>
-                          {/* <td>
+                          <td>
                             Stock:{productStock}
-                          </td> */}
+                          </td>
                          
 
                           <td>

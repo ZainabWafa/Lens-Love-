@@ -15,12 +15,26 @@ export const selectCartItemsCount = createSelector(
         quantity + cartItem.quantity
       , 0)
 );
+export const selectCartTax = createSelector(
+  [selectCartItems],
+  cartItem=>
+    cartItem.reduce(
+      (taxPrice) =>
+          cartItem * 0.14,0)
 
+    // taxPrice = productPrice * 0.14; 
+    // total = productPrice + taxPrice;
+);
+// const itemsPrice = cartItems.reduce((a, c) => a + c.quantity * c.productPrice, 0);
+// const taxPrice = productPrice * 0.14;
+// const total = productPrice + taxPrice;
+// taxPrice:selectCartTax,
 export const selectCartTotal = createSelector(
   [selectCartItems],
   cartItems =>
     cartItems.reduce(
       (quantity, cartItem) =>
-        quantity + cartItem.quantity * cartItem.productPrice,
+        quantity + cartItem.quantity * cartItem.productPrice ,
     0)
+
 );

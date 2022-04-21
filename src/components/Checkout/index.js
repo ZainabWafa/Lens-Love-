@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector,useDispatch } from 'react-redux';
-import { selectCartItems, selectCartTotal,selectCartItemsCount } from './../../redux/Cart/cart.selectors';
+import { selectCartItems, selectCartTotal,selectCartItemsCount,selectCartTax } from './../../redux/Cart/cart.selectors';
 import { createStructuredSelector } from 'reselect';
 import './styles.scss';
 import Button from './../forms/Button';
@@ -12,27 +12,34 @@ import {clearCart} from './../../redux/Cart/cart.actions'
 
 const mapState = createStructuredSelector({
   cartItems: selectCartItems,
+  // taxPrice: selectCartTax,
   total: selectCartTotal,
   itemCount: selectCartItemsCount,
 });
 
 const Checkout = ({ }) => {
   const history = useHistory();
-  const { cartItems, total, itemCount } = useSelector(mapState);
+  const { cartItems, total, itemCount, taxPrice } = useSelector(mapState);
+  
   
   const dispatch = useDispatch();
   const configOrder={
-    orderTotal:total,
+    orderTotal:total, 
     orderItems: cartItems.map(item => {
       const { documentID, productThumbnail, productName,
         productPrice, quantity } = item;
+         
+        
+        // const taxPrice = productPrice * 0.14;
+        // const total = productPrice + taxPrice;
 
         return {
           documentID,
           productThumbnail,
           productName,
           productPrice,
-          quantity
+          quantity,
+          
         }
       })
 
@@ -122,6 +129,11 @@ const Checkout = ({ }) => {
                           <table border="0" cellPadding="10" cellSpacing="0">
                             <tbody>
                               <tr>
+                                <td>
+                                  <h4>
+                                    taxPrice: ₹{taxPrice}
+                                  </h4>
+                                </td>
                                 <td>
                                 <h3>
                                   Total: ₹{total}
