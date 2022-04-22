@@ -9,5 +9,5 @@ export const checkUserIsAdmin = currentUser => {
 }
 
 export const apiInstance = axios.create({
-  baseURL: ''
+  baseURL: 'http://localhost:3000/payment'
 });

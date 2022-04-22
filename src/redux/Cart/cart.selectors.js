@@ -19,8 +19,8 @@ export const selectCartTax = createSelector(
   [selectCartItems],
   cartItem=>
     cartItem.reduce(
-      (taxPrice) =>
-          cartItem * 0.14,0)
+      (quantity,cartItem) =>
+          cartItem.quantity*cartItem.productPrice * 0.18,0)
 
     // taxPrice = productPrice * 0.14; 
     // total = productPrice + taxPrice;

@@ -121,7 +121,8 @@ const Admin = props => {
 
             <FormInput
               label="Main image "
-              type="file"
+              type="url"
+              // accept="image.png"
               // type="file" accept="image/*" 
               // enctype='multipart/'
               value={productThumbnail}
@@ -199,7 +200,11 @@ const Admin = props => {
                           <td>
                             Stock:{productStock}
                           </td>
-                         
+                          <td>
+                            <Button onClick={() => dispatch(deleteProductStart(documentID))}>
+                              Edit
+                            </Button>
+                          </td>
 
                           <td>
                             <Button onClick={() => dispatch(deleteProductStart(documentID))}>

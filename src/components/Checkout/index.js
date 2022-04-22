@@ -12,7 +12,7 @@ import {clearCart} from './../../redux/Cart/cart.actions'
 
 const mapState = createStructuredSelector({
   cartItems: selectCartItems,
-  // taxPrice: selectCartTax,
+   taxPrice: selectCartTax,
   total: selectCartTotal,
   itemCount: selectCartItemsCount,
 });
@@ -136,7 +136,7 @@ const Checkout = ({ }) => {
                                 </td>
                                 <td>
                                 <h3>
-                                  Total: ₹{total}
+                                  Total: ₹{total+taxPrice}
                                 </h3>
                                 </td>
                               </tr>
