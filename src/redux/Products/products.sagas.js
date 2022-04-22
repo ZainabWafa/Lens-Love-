@@ -81,6 +81,7 @@ export default function* productsSagas() {
   yield all([
     call(onAddProductStart),
     call(onFetchProductsStart),
+    // call(on)
     call(onDeleteProductStart),
     call(onFetchProductStart),
   ])

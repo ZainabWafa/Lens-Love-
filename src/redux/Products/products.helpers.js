@@ -51,6 +51,22 @@ export const handleFetchProducts = ({ filterType, startAfterDoc, persistProducts
   })
 }
 
+export const handleEditProduct = documentID => {
+  return new Promise((resolve,reject)=>{
+    firestore
+    .collection('products')
+    .doc(documentID)
+    .update({
+      
+    })
+    .then(()=>{
+      resolve();
+    })
+    .catch(err=>{
+      reject(err);
+      })
+  });
+}
 export const handleDeleteProduct = documentID => {
   return new Promise((resolve, reject) => {
     firestore
@@ -67,22 +83,22 @@ export const handleDeleteProduct = documentID => {
   });
 }
 
-// export const handleUpdateStock = (documentID) =>{
-//   return new Promise((resolve,reject)=>{
-//     firestore
-//     .collection('products')
-//     .doc(documentID)
-//     .update({
+export const handleUpdateStock = (documentID) =>{
+  return new Promise((resolve,reject)=>{
+    firestore
+    .collection('products')
+    .doc(documentID)
+    .update({
       
-//     })
-//     .then(()=>{
-//       resolve();
-//     })
-//     .catch(err=>{
-//       reject(err);
-//     })
-//   })
-// }
+    })
+    .then(()=>{
+      resolve();
+    })
+    .catch(err=>{
+      reject(err);
+    })
+  })
+}
 
 export const handleFetchProduct = (productID) => {
   return new Promise((resolve, reject) => {
